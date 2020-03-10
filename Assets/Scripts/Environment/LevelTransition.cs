@@ -6,21 +6,19 @@ namespace HackedDesign
 {
     public class LevelTransition : MonoBehaviour
     {
-        [SerializeField] bool transitionDown;
-        [SerializeField] GameObject level1 = null;
-        [SerializeField] GameObject level2 = null;
+        [SerializeField] bool transitionDown = false;
+        [SerializeField] EnvironmentManager environment = null;
+
         // Start is called before the first frame update
 
         public void TransitionToLevel1()
         {
-            level1.SetActive(true);
-            level2.SetActive(false);
+            environment.TransitionUp();
         }
 
         public void TransitionToLevel2()
         {
-            level1.SetActive(false);
-            level2.SetActive(true);
+            environment.TransitionDown();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

@@ -6,7 +6,14 @@ namespace HackedDesign
 {
     public class Game : MonoBehaviour
     {
-        [SerializeField] GameState state = new GameState();
+        public static Game instance;
+
+        [SerializeField] public GameState state = new GameState();
+
+        Game()
+        {
+            instance = this;
+        }
 
 
         // Start is called before the first frame update
@@ -28,7 +35,7 @@ namespace HackedDesign
         // Update is called once per frame
         void Update()
         {
-
+            state.spacePosition.y += Time.deltaTime;
         }
     }
 }

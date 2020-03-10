@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnvironmentState : MonoBehaviour
+
+namespace HackedDesign
 {
-    [SerializeField] public float oxygenStorage = 0;
-    [SerializeField] public float oxygenStorageMax = 100;
-    [SerializeField] public float climateControl = 26.0f;
-    [SerializeField] public float climateControlEnergy = 20;
-
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class EnvironmentState
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField] public List<Area> currentAreaList;
+        [SerializeField] public float oxygenStorage = 0;
+        [SerializeField] public float oxygenStorageMax = 100;
+        [SerializeField] public float climateControl = 26.0f;
+        [SerializeField] public float climateControlEnergy = 20;
+
     }
 }

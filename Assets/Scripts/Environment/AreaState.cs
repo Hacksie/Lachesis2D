@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace HackedDesign
 {
     [System.Serializable]
-    public class GameState
+    public class AreaState
     {
-        public int day = 0;
-        public float dayTime = 0;
+        public int startingOxygen = 0;
+        public int oxygen;
 
-        public Vector2 spacePosition;
     }
 }
