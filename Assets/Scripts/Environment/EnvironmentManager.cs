@@ -12,7 +12,13 @@ namespace HackedDesign
         [SerializeField] GameObject level2 = null;
         // Start is called before the first frame update
 
-         public void AddCurrentArea(Area area)
+        private void Start()
+        {
+            level1.SetActive(true);
+            level2.SetActive(false);
+        }
+
+        public void AddCurrentArea(Area area)
         {
             if(!state.currentAreaList.Contains(area))
             {

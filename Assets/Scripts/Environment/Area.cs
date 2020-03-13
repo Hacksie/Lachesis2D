@@ -11,6 +11,21 @@ namespace HackedDesign
         [SerializeField] public string title;
         [SerializeField] public AreaState state = new AreaState();
 
+        public float ConsumeAir(float amount)
+        {
+            if (state.air >= amount)
+            {
+                state.air -= amount;
+                return amount;
+            }
+            else
+            {
+                var ret = state.air;
+                state.air = 0;
+                return ret;
+            }
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

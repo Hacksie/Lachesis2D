@@ -9,19 +9,25 @@ namespace HackedDesign
     public class PlayerController : MonoBehaviour
     {
         Animator animator;
+
+        [Header("Settings")]
+        [SerializeField] float baseMovementSpeed = 1.0f;
+        [Header("State")]
         [SerializeField] Vector2 direction = Vector2.down;
         [SerializeField] bool moving = false;
-        [SerializeField] float baseMovementSpeed = 1.0f;
 
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             animator = GetComponent<Animator>();
         }
 
         public void MoveEvent(InputAction.CallbackContext context)
         {
+            if (Game.instance.State().gameState != GameStateEnum.Playing)
+                return;
+
             var dir = context.ReadValue<Vector2>();
 
             if (dir.sqrMagnitude > Vector2.kEpsilon)
@@ -36,6 +42,14 @@ namespace HackedDesign
 
         }
 
+        public void SuffocateEvent()
+        {
+            Logger.Log(name, name, " suffocated");
+            Game.instance.SetGameState(GameStateEnum.DeadAir);
+        }
+
+
+
         private void LateUpdate()
         {
             animator.SetBool("moving", moving);
@@ -47,16 +61,20 @@ namespace HackedDesign
         // Update is called once per frame
         void Update()
         {
+            if (!Game.instance.IsPlaying())
+                return;
+
             UpdatePosition();
+
         }
 
         void UpdatePosition()
         {
-            if(moving)
+            if (moving)
             {
-                transform.Translate(direction * baseMovementSpeed * Time.fixedDeltaTime);
+                transform.Translate(direction * baseMovementSpeed * Time.deltaTime);
             }
-            
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace HackedDesign
         [SerializeField]
         //private GameState state;
 
-        void Start()
+        void Awake()
         {
 
             startpos = transform.position;
@@ -25,8 +25,8 @@ namespace HackedDesign
         void FixedUpdate()
         {
             
-            Vector2 temp = (Game.instance.state.spacePosition * (1 - parallaxEffect));
-            Vector2 dist = Game.instance.state.spacePosition * parallaxEffect;
+            Vector2 temp = Game.instance.State().spacePosition * (1 - parallaxEffect);
+            Vector2 dist = Game.instance.State().spacePosition * parallaxEffect;
 
             transform.position = startpos - dist;
 

@@ -8,8 +8,10 @@ namespace HackedDesign
     public class AreaPresenter : MonoBehaviour
     {
         [SerializeField] private EnvironmentManager environment;
-        [SerializeField] Text areaTitle;
-        [SerializeField] Text areaOxygen;
+        [SerializeField] Text areaTitle = null;
+        [SerializeField] Text areaAir = null;
+        [SerializeField] Text areaTemperature = null;
+        [SerializeField] Text areaPower = null;
 
         public void LateUpdate()
         {
@@ -19,18 +21,19 @@ namespace HackedDesign
         public void UpdateText()
         {
             var area = environment.GetFirstCurrentArea();
-            if (area != null)
-            {
-                areaTitle.text = area.title;
-                areaOxygen.text = area.state.oxygen.ToString();
-            }
-            else
+            if (area == null)
             {
                 areaTitle.text = @"Unknown Area";
+                areaAir.text = @"?";
+                areaTemperature.text = @"?";
+                areaPower.text = @"?";
+                return;
             }
 
-
+            areaTitle.text = area.title;
+            areaAir.text = Mathf.RoundToInt(area.state.air).ToString();
+            areaTemperature.text = Mathf.RoundToInt(area.state.temperature).ToString();
+            areaPower.text = Mathf.RoundToInt(area.state.power).ToString();
         }
-
     }
 }
