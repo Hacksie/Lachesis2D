@@ -7,6 +7,7 @@ namespace HackedDesign
     [System.Serializable]
     public class GameState
     {
+        public Hoverable hoverable;
         public GameStateEnum gameState;
         public int day = 0;
         public float dayTime = 0;

@@ -7,7 +7,7 @@ namespace HackedDesign
 {
     public class AreaPresenter : MonoBehaviour
     {
-        [SerializeField] private EnvironmentManager environment;
+        [SerializeField] private EnvironmentManager environment = null;
         [SerializeField] Text areaTitle = null;
         [SerializeField] Text areaAir = null;
         [SerializeField] Text areaTemperature = null;
