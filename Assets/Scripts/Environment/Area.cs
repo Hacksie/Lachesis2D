@@ -6,9 +6,13 @@ namespace HackedDesign
 {
     public class Area : MonoBehaviour
     {
+        [Header("Game Objects")]
         [SerializeField] private EnvironmentManager environment = null;
+        [SerializeField] private GameObject propsParent = null;
 
+        [Header("Settings")]
         [SerializeField] public string title;
+        [Header("State")]
         [SerializeField] public AreaState state = new AreaState();
 
         public float ConsumeAir(float amount)

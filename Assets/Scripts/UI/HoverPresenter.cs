@@ -17,28 +17,27 @@ namespace HackedDesign
         }
 
 
-        // Update is called once per frame
         void Update()
         {
             if (Game.instance.IsPlaying())
             {
                 var hoverable = Game.instance.State().hoverable;
 
-                
-
-
                 if (hoverable != null)
                 {
-                    //gameObject;
                     canvasGroup.alpha = 1;
-                    Vector2 pos = mainCamera.WorldToScreenPoint(hoverable.gameObject.transform.position);
-                    this.transform.position = pos;
+
+                    var sprite = hoverable.gameObject.GetComponentInChildren<SpriteRenderer>();
+
+                    var bounds = sprite.bounds;
+
+                    Vector2 pos = mainCamera.WorldToScreenPoint(new Vector3(bounds.center.x, bounds.max.y, 0));
+                    transform.position = pos;
                     hoverableText.text = hoverable.title;
                 }
                 else
                 {
                     canvasGroup.alpha = 0;
-                    //gameObject.SetActive(false);
                 }
             }
         }

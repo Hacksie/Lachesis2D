@@ -8,6 +8,8 @@ namespace HackedDesign
     public class Cursor : MonoBehaviour
     {
         [SerializeField] private LayerMask cursorLayerMask;
+        [SerializeField] private LayerMask floorLayerMask;
+        [SerializeField] private Transform selectBox = null;
 
         private Camera mainCamera = null;
         // Start is called before the first frame update
@@ -26,15 +28,26 @@ namespace HackedDesign
 
                 if (hit.transform != null)
                 {
-                    var hoverable = hit.collider.gameObject.GetComponent<Hoverable>();
-
-                    if(hoverable != null)
+                    if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Floor"))
                     {
-                        Game.instance.State().hoverable = hoverable;
-                    }  
+                        selectBox.gameObject.SetActive(true);
+                        Game.instance.State().hoverable = null;
+                        selectBox.position = new Vector2(Mathf.Floor(hit.point.x), Mathf.Floor(hit.point.y));
+                    }
                     else
                     {
-                        Game.instance.State().hoverable = null;
+                        selectBox.gameObject.SetActive(false);
+                        var hoverable = hit.collider.gameObject.GetComponent<Hoverable>();
+
+                        if (hoverable != null)
+                        {
+                            
+                            Game.instance.State().hoverable = hoverable;
+                        }
+                        else
+                        {
+                            Game.instance.State().hoverable = null;
+                        }
                     }
                 }
                 else
