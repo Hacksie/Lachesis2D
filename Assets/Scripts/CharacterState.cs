@@ -15,6 +15,8 @@ namespace HackedDesign
         [SerializeField] public float thirst;
         [SerializeField] public List<string> injuries;
 
+        [SerializeField] public float airMax = 100.0f;
+
         [SerializeField] public UnityEvent zeroAirEvent;
         [SerializeField] public UnityEvent zeroHealthEvent;
         [SerializeField] public UnityEvent zeroHappinessEvent;

@@ -23,7 +23,6 @@ namespace HackedDesign
         {
             if(Game.instance.IsPlaying())
             {
-
                 RaycastHit2D hit = Physics2D.Raycast(mainCamera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100.0f,cursorLayerMask);
 
                 if (hit.transform != null)
@@ -31,28 +30,28 @@ namespace HackedDesign
                     if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Floor"))
                     {
                         selectBox.gameObject.SetActive(true);
-                        Game.instance.State().hoverable = null;
+                        Game.instance.State().currentSelectable = null;
                         selectBox.position = new Vector2(Mathf.Floor(hit.point.x), Mathf.Floor(hit.point.y));
                     }
                     else
                     {
                         selectBox.gameObject.SetActive(false);
-                        var hoverable = hit.collider.gameObject.GetComponent<Hoverable>();
+                        var selectable = hit.collider.gameObject.GetComponent<Selectable>();
 
-                        if (hoverable != null)
+                        if (selectable != null)
                         {
                             
-                            Game.instance.State().hoverable = hoverable;
+                            Game.instance.State().currentSelectable = selectable;
                         }
                         else
                         {
-                            Game.instance.State().hoverable = null;
+                            Game.instance.State().currentSelectable = null;
                         }
                     }
                 }
                 else
                 {
-                    Game.instance.State().hoverable = null;
+                    Game.instance.State().currentSelectable = null;
                 }
             }
         }

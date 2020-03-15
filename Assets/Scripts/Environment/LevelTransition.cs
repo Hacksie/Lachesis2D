@@ -7,7 +7,7 @@ namespace HackedDesign
     public class LevelTransition : MonoBehaviour
     {
         [SerializeField] bool transitionDown = false;
-        [SerializeField] EnvironmentManager environment = null;
+        [SerializeField] ShipManager environment = null;
 
         // Start is called before the first frame update
 

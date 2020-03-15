@@ -9,11 +9,12 @@ namespace HackedDesign
     {
         private CharacterState state;
         [Header("External Game Objects")]
-        [SerializeField] public EnvironmentManager environment;
+        [SerializeField] public ShipManager environment;
 
 
         [Header("Settings")]
         [SerializeField] public float rate = 2.0f;
+        [SerializeField] public float inBonus = 2.0f;
 
         void Awake()
         {
@@ -28,13 +29,14 @@ namespace HackedDesign
 
             if (state.air > 0)
             {
-                var amount = rate * Time.deltaTime;
-                state.air -= amount;
+                var outAmount = rate * Time.deltaTime;
+                state.air -= outAmount;
 
                 var area = environment.GetFirstCurrentArea();
                 if (area != null)
                 {
-                    state.air += area.ConsumeAir(amount);
+                    var inAmount = Mathf.Min((rate + inBonus) * Time.deltaTime, state.airMax - state.air);
+                    state.air += area.ConsumeAir(inAmount);
                 }
             }
         }

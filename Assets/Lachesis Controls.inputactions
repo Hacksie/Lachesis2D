@@ -1,5 +1,5 @@
 {
-    "name": "Left Behind",
+    "name": "Lachesis Controls",
     "maps": [
         {
             "name": "Player",
@@ -10,6 +10,22 @@
                     "type": "Value",
                     "id": "0b849051-d13d-444c-93f9-8844aedba1b7",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "7e689c51-7fad-4d02-9217-146813911870",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Mouse Position",
+                    "type": "Value",
+                    "id": "4b6b1f3a-1074-4064-a2c3-2d43e70a9710",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -133,6 +149,28 @@
                     "processors": "",
                     "groups": "Joystick",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb141b8d-e8ed-4552-9c03-6200d36bb185",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c499b65-3a41-4ac1-811b-fd7a7ef08bb0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Mouse Position",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

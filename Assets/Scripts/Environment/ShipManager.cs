@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace HackedDesign
 {
-    public class EnvironmentManager : MonoBehaviour
+    public class ShipManager : MonoBehaviour
     {
-        [SerializeField] EnvironmentState state = new EnvironmentState();
+        [SerializeField] public ShipState state = new ShipState();
 
         [SerializeField] GameObject level1 = null;
         [SerializeField] GameObject level2 = null;
+
         // Start is called before the first frame update
 
         private void Start()

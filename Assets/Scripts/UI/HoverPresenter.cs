@@ -16,12 +16,11 @@ namespace HackedDesign
             canvasGroup = GetComponent<CanvasGroup>();
         }
 
-
         void Update()
         {
             if (Game.instance.IsPlaying())
             {
-                var hoverable = Game.instance.State().hoverable;
+                var hoverable = Game.instance.State().currentSelectable;
 
                 if (hoverable != null)
                 {
@@ -33,7 +32,7 @@ namespace HackedDesign
 
                     Vector2 pos = mainCamera.WorldToScreenPoint(new Vector3(bounds.center.x, bounds.max.y, 0));
                     transform.position = pos;
-                    hoverableText.text = hoverable.title;
+                    hoverableText.text = hoverable.description.@short;
                 }
                 else
                 {
