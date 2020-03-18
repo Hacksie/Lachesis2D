@@ -11,7 +11,7 @@ namespace HackedDesign
 
         public float ConsumeAir(float amount)
         {
-            return amount;
+            return ship.ConsumeAir(amount);
         }
     }
 }

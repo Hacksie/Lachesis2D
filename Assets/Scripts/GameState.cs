@@ -25,4 +25,12 @@ namespace HackedDesign
         DeadAir,
         DeadHealth
     }
+
+    public enum ActionStateEnum
+    {
+        Select,
+        Repair,
+        Build,
+        Destroy
+    }
 }

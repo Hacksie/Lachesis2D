@@ -35,6 +35,21 @@ namespace HackedDesign
             }
         }
 
+        public float ConsumeAir(float amount)
+        {
+            if (state.air >= amount)
+            {
+                state.air -= amount;
+                return amount;
+            }
+            else
+            {
+                var ret = state.air;
+                state.air = 0;
+                return ret;
+            }
+        }
+
         public Area GetLastCurrentArea() => state.currentAreaList.Count <= 0 ? null : state.currentAreaList[state.currentAreaList.Count - 1];
         public Area GetFirstCurrentArea() => state.currentAreaList.Count <= 0 ? null : state.currentAreaList[0];
 

@@ -30,7 +30,7 @@ namespace HackedDesign
                 return;
             }
 
-            areaTitle.text = area.title;
+            areaTitle.text = area.description.@short;
             areaAir.text = Mathf.RoundToInt(area.state.air).ToString();
             areaTemperature.text = Mathf.RoundToInt(area.state.temperature).ToString();
             areaPower.text = Mathf.RoundToInt(area.state.power).ToString();

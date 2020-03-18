@@ -97,7 +97,6 @@ namespace HackedDesign
                     Game.instance.State().currentSelectable.Select();
                 }
             }
-            //Game.instance.State().currentSelectable
         }
 
 
@@ -115,6 +114,10 @@ namespace HackedDesign
             animator.SetBool("moving", moving);
             animator.SetFloat("directionX", direction.x);
             animator.SetFloat("directionY", direction.y);
+
+            //animator.SetBool("isMoving", moving);
+            //animator.SetFloat("moveX", direction.x);
+            //animator.SetFloat("moveY", direction.y);
 
         }
 

@@ -7,7 +7,7 @@ namespace HackedDesign
 {
     public class PlayerPresenter : MonoBehaviour
     {
-        [SerializeField] private CharacterState characterState;
+        [SerializeField] private CharacterState characterState = null;
         [SerializeField] Text charAir = null;
         [SerializeField] Text charHealth = null;
         [SerializeField] Text charHappiness = null;

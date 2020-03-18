@@ -7,8 +7,8 @@ namespace HackedDesign
     [RequireComponent(typeof(Camera))]
     public class Cursor : MonoBehaviour
     {
-        [SerializeField] private LayerMask cursorLayerMask;
-        [SerializeField] private LayerMask floorLayerMask;
+        [SerializeField] private LayerMask cursorLayerMask = 0;
+        [SerializeField] private LayerMask floorLayerMask = 0;
         [SerializeField] private Transform selectBox = null;
 
         private Camera mainCamera = null;

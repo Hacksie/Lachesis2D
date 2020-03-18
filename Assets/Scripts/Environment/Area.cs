@@ -11,7 +11,8 @@ namespace HackedDesign
         [SerializeField] private GameObject propsParent = null;
 
         [Header("Settings")]
-        [SerializeField] public string title;
+        [SerializeField] public Description description;
+        //[SerializeField] public string title;
         [SerializeField] public float airRefillRate = 5.0f;
         [Header("State")]
         [SerializeField] public AreaState state = new AreaState();
@@ -25,6 +26,7 @@ namespace HackedDesign
             {
                 state.air -= amount;
                 return amount;
+
             }
             else
             {
